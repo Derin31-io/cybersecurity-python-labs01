@@ -48,7 +48,7 @@ def analyze_passwords():
         # Підрахунок загальної кількості виконаних критеріїв (з 4 можливих)
         criteria_met_count = sum([has_lower, has_upper, has_digit, has_special])
 
-        # Перевірка обов'язкових критеріїв для Варіанту 4
+        # Перевірка обов'язкових критеріїв
         all_required_met = (has_upper and has_digit and has_special)
 
         # Перевірка на унікальність у всьому списку
