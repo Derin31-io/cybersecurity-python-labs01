@@ -284,5 +284,71 @@
             "Wrong123!"
         ],
         "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-20 07:54:43",
+        "args": [
+            "admin",
+            "SuperSecurePassword!2024"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-20 07:54:43",
+        "args": [
+            "admin",
+            "Wrong123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-24 05:38:56",
+        "args": [
+            "admin",
+            "SuperSecurePassword!2024"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-24 05:38:56",
+        "args": [
+            "admin",
+            "Wrong123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "success",
+        "timestamp": "2026-09-24 05:47:50",
+        "args": [
+            "admin",
+            "SuperSecurePassword!2024"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin",
+        "result": "failure",
+        "timestamp": "2026-09-24 05:47:50",
+        "args": [
+            "admin",
+            "Wrong123!"
+        ],
+        "kwargs": {}
     }
 ]

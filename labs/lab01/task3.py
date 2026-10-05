@@ -36,9 +36,9 @@ def log_event(func):
             "event": "login",
             "user": username,
             "result": result_str,
-            "timestamp": datetime.datetime.now(
-                datetime.timezone.utc
-            ).strftime("%Y-%m-%d %H:%M:%S"),
+            "timestamp": datetime.datetime.now(datetime.timezone.utc).strftime(
+                "%Y-%m-%d %H:%M:%S"
+            ),
             "args": list(args),
             "kwargs": kwargs,
         }
@@ -74,8 +74,7 @@ def generate_hash(password: str, salt: str = "00000") -> str:
 
     if len(password) < MIN_PASSWORD_LENGTH:
         raise ValidationError(
-            f"Пароль коротший за мінімальну довжину "
-            f"({MIN_PASSWORD_LENGTH} символів)."
+            f"Пароль коротший за мінімальну довжину ({MIN_PASSWORD_LENGTH} символів)."
         )
 
     data_to_hash = (password + salt).encode("utf-8")
@@ -103,12 +102,7 @@ def create_users(users_list: list):
     try:
         os.makedirs(DATA_DIR, exist_ok=True)
 
-        with open(
-            USERS_CSV_PATH,
-            "w",
-            newline="",
-            encoding="utf-8"
-        ) as f:
+        with open(USERS_CSV_PATH, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
 
             writer.writerow(["username", "password_hash"])
@@ -157,17 +151,12 @@ def login(username: str, password: str) -> bool:
     except (ValueError, ValidationError) as e:
         print(f"Помилка входу для {username}: {e}")
 
-    except (FileNotFoundError, PermissionError, OSError) as e:
-        print(f"Системна помилка при спробі входу: {e}")
-
     return False
 
 
 def main():
     print(
-        f"Студент: {STUDENT_NAME} | "
-        f"Група: {GROUP_NAME} | "
-        f"Варіант: {VARIANT_NUMBER}\n"
+        f"Студент: {STUDENT_NAME} | Група: {GROUP_NAME} | Варіант: {VARIANT_NUMBER}\n"
     )
 
     users_to_register = [
@@ -180,7 +169,7 @@ def main():
         ("bob", "BobBuilder%Secure12"),
         ("charlie", "CharlieChaplin#1234"),
         ("dave", "DaveIsSafe&Sound77"),
-        ("eve", "EveEavesdropper*99")
+        ("eve", "EveEavesdropper*99"),
     ]
 
     print("Реєстрація користувачів")
@@ -197,15 +186,9 @@ def main():
 
     print("\nСпроби входу")
 
-    print(
-        "Вхід admin (вірно):",
-        login("admin", "SuperSecurePassword!2024")
-    )
+    print("Вхід admin (вірно):", login("admin", "SuperSecurePassword!2024"))
 
-    print(
-        "Вхід admin (невірно):",
-        login("admin", "Wrong123!")
-    )
+    print("Вхід admin (невірно):", login("admin", "Wrong123!"))
 
 
 if __name__ == "__main__":

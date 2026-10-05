@@ -3,17 +3,28 @@ import random
 import string
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
-passwords = ["Security@2023", "pass", "MyStr0ng#Key", "root", "Advanc3d@Pass", "user", "Protec7!Pass", "1234", "Elite@Secur1ty", "admin123"]
+passwords = [
+    "Security@2023",
+    "pass",
+    "MyStr0ng#Key",
+    "root",
+    "Advanc3d@Pass",
+    "user",
+    "Protec7!Pass",
+    "1234",
+    "Elite@Secur1ty",
+    "admin123",
+]
 
 criteria = {
     "min_length": 7,
     "require_digits": True,
     "require_upper": True,
-    "require_special": True
+    "require_special": True,
 }
 
 forbidden_passwords = {"pass", "root", "user", "1234", "admin123", "password"}
@@ -49,7 +60,7 @@ def analyze_passwords():
         criteria_met_count = sum([has_lower, has_upper, has_digit, has_special])
 
         # Перевірка обов'язкових критеріїв
-        all_required_met = (has_upper and has_digit and has_special)
+        all_required_met = has_upper and has_digit and has_special
 
         # Перевірка на унікальність у всьому списку
         is_unique = passwords.count(pwd) == 1

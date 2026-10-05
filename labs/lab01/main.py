@@ -4,12 +4,11 @@ import task3
 
 
 def main():
-    """Запускає всі завдання лабораторної роботи."""
     print("\n========== TASK 1 ==========")
-    task1.main()
+    task1.analyze_passwords()
 
     print("\n========== TASK 2 ==========")
-    task2.main()
+    task2.check_access()
 
     print("\n========== TASK 3 ==========")
     task3.main()
