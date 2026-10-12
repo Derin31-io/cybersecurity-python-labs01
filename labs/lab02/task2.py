@@ -139,15 +139,18 @@ def build_report(
 
 def save_json(report: dict, path: Path) -> None:
     """Зберігає звіт у JSON."""
-    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
 
-    with path.open("w", encoding="utf-8") as file:
-        json.dump(
-            report,
-            file,
-            indent=4,
-            ensure_ascii=False,
-        )
+        with path.open("w", encoding="utf-8") as file:
+            json.dump(
+                report,
+                file,
+                indent=4,
+                ensure_ascii=False,
+            )
+    except OSError as exc:
+        raise OSError(f"Cannot save JSON report: {path}") from exc
 
 
 def configure_logging() -> None:
@@ -293,3 +296,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# python -m labs.lab02.main demo
+# python -m labs.lab02.main analyze --auth-log labs/lab02/data/auth.log
