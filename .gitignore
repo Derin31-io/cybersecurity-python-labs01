@@ -219,3 +219,7 @@ __marimo__/
 .streamlit/secrets.toml
 /labs/lab01/data/
 /labs/lab02/data/
+/labs/lab03/data/*.sqlite3
+/labs/lab03/data/*.sqlite3-*
+/labs/lab03/data/*.db
+/labs/lab03/data/*.db-*
